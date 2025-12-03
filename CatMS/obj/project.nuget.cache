@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bR4yM+++Lg4=",
+  "dgSpecHash": "a3ZO/ECjl6U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\CatMS.csproj",
+  "projectFilePath": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\CatMS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NP\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\NP\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

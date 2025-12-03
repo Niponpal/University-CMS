@@ -1,25 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\",
+  "WorkspaceRootPath": "C:\\Users\\NP\\Desktop\\University-CMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\sw2\\university-cms\\catms\\areas\\admin\\views\\buyer\\createoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\areas\\admin\\views\\buyer\\createoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\areas\\admin\\controllers\\sellercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\areas\\admin\\controllers\\sellercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\sw2\\university-cms\\catms\\migrations\\authdb\\20250824181405_ints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\migrations\\authdb\\20250824181405_ints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\areas\\admin\\views\\seller\\createoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\areas\\admin\\views\\seller\\createoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\sw2\\university-cms\\catms\\areas\\admin\\controllers\\buyercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\areas\\admin\\controllers\\buyercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\areas\\admin\\controllers\\buyercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\sw2\\university-cms\\catms\\areas\\admin\\views\\buyer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\areas\\admin\\controllers\\catcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\areas\\admin\\controllers\\catcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\areas\\admin\\views\\buyer\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\areas\\admin\\views\\buyer\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\areas\\admin\\views\\buyer\\createoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\areas\\admin\\views\\buyer\\createoredit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\migrations\\authdb\\20250824181405_ints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\migrations\\authdb\\20250824181405_ints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\areas\\admin\\views\\buyer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\areas\\admin\\views\\buyer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\sw2\\university-cms\\catms\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|c:\\users\\np\\desktop\\university-cms\\catms\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EBB2743-5D33-4BC2-AAA5-1566D45FF218}|CatMS\\CatMS.csproj|solutionrelative:catms\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -35,67 +51,111 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "20250824181405_ints.cs",
-              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Migrations\\AuthDb\\20250824181405_ints.cs",
-              "RelativeDocumentMoniker": "CatMS\\Migrations\\AuthDb\\20250824181405_ints.cs",
-              "ToolTip": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Migrations\\AuthDb\\20250824181405_ints.cs",
-              "RelativeToolTip": "CatMS\\Migrations\\AuthDb\\20250824181405_ints.cs",
-              "ViewState": "AgIAAPsAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T14:52:02.549Z",
-              "EditorCaption": ""
+              "Title": "CreateOrEdit.cshtml",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Seller\\CreateOrEdit.cshtml",
+              "RelativeDocumentMoniker": "CatMS\\Areas\\Admin\\Views\\Seller\\CreateOrEdit.cshtml",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Seller\\CreateOrEdit.cshtml",
+              "RelativeToolTip": "CatMS\\Areas\\Admin\\Views\\Seller\\CreateOrEdit.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAYwF8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-03T15:07:45.601Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CreateOrEdit.cshtml",
-              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\CreateOrEdit.cshtml",
-              "RelativeDocumentMoniker": "CatMS\\Areas\\Admin\\Views\\Buyer\\CreateOrEdit.cshtml",
-              "ToolTip": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\CreateOrEdit.cshtml*",
-              "RelativeToolTip": "CatMS\\Areas\\Admin\\Views\\Buyer\\CreateOrEdit.cshtml*",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAYwGoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-03T14:34:17.584Z",
+              "Title": "SellerController.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Controllers\\SellerController.cs",
+              "RelativeDocumentMoniker": "CatMS\\Areas\\Admin\\Controllers\\SellerController.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Controllers\\SellerController.cs",
+              "RelativeToolTip": "CatMS\\Areas\\Admin\\Controllers\\SellerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T15:07:41.377Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "CatController.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Controllers\\CatController.cs",
+              "RelativeDocumentMoniker": "CatMS\\Areas\\Admin\\Controllers\\CatController.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Controllers\\CatController.cs",
+              "RelativeToolTip": "CatMS\\Areas\\Admin\\Controllers\\CatController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T15:01:28.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\Details.cshtml",
+              "RelativeDocumentMoniker": "CatMS\\Areas\\Admin\\Views\\Buyer\\Details.cshtml",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\Details.cshtml",
+              "RelativeToolTip": "CatMS\\Areas\\Admin\\Views\\Buyer\\Details.cshtml",
+              "ViewState": "AgIAAIkBAAAAAAAAAAAgwMMBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-03T14:55:34.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "20250824181405_ints.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Migrations\\AuthDb\\20250824181405_ints.cs",
+              "RelativeDocumentMoniker": "CatMS\\Migrations\\AuthDb\\20250824181405_ints.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Migrations\\AuthDb\\20250824181405_ints.cs",
+              "RelativeToolTip": "CatMS\\Migrations\\AuthDb\\20250824181405_ints.cs",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T14:52:02.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateOrEdit.cshtml",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\CreateOrEdit.cshtml",
+              "RelativeDocumentMoniker": "CatMS\\Areas\\Admin\\Views\\Buyer\\CreateOrEdit.cshtml",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\CreateOrEdit.cshtml",
+              "RelativeToolTip": "CatMS\\Areas\\Admin\\Views\\Buyer\\CreateOrEdit.cshtml",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAYwGoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-03T14:34:17.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\Index.cshtml",
               "RelativeDocumentMoniker": "CatMS\\Areas\\Admin\\Views\\Buyer\\Index.cshtml",
-              "ToolTip": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\Index.cshtml",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Views\\Buyer\\Index.cshtml",
               "RelativeToolTip": "CatMS\\Areas\\Admin\\Views\\Buyer\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-03T14:34:05.681Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T14:34:05.681Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "BuyerController.cs",
-              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Areas\\Admin\\Controllers\\BuyerController.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Controllers\\BuyerController.cs",
               "RelativeDocumentMoniker": "CatMS\\Areas\\Admin\\Controllers\\BuyerController.cs",
-              "ToolTip": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Areas\\Admin\\Controllers\\BuyerController.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Areas\\Admin\\Controllers\\BuyerController.cs",
               "RelativeToolTip": "CatMS\\Areas\\Admin\\Controllers\\BuyerController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAywBoAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T14:32:55.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T14:32:55.43Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "CatMS\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\Controllers\\AccountController.cs",
               "RelativeToolTip": "CatMS\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T14:32:43.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-03T14:32:43.342Z"
             }
           ]
         }

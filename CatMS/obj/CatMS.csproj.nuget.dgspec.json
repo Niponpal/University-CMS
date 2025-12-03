@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\CatMS.csproj": {}
+    "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\CatMS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\CatMS.csproj": {
+    "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\CatMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\CatMS.csproj",
+        "projectUniqueName": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\CatMS.csproj",
         "projectName": "CatMS",
-        "projectPath": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\CatMS.csproj",
+        "projectPath": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\CatMS.csproj",
         "packagesPath": "C:\\Users\\NP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NP\\Desktop\\SW2\\University-CMS\\CatMS\\obj\\",
+        "outputPath": "C:\\Users\\NP\\Desktop\\University-CMS\\CatMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
