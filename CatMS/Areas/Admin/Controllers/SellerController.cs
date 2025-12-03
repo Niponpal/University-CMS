@@ -32,6 +32,7 @@ public class SellerController : Controller
             return View(data);
         }
     }
+
     [HttpPost]
     public async Task<IActionResult> CreateOrEdit(Seller seller)
     {
