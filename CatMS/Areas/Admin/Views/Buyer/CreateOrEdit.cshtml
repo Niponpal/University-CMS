@@ -4,6 +4,119 @@
     ViewData["Title"] = "Register Buyer";
 }
 
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Header -->
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary mb-3">
+                    <i class="fas fa-user-plus me-2"></i>Register Buyer
+                </h2>
+                <p class="text-muted">Please fill in the buyer information below</p>
+            </div>
+
+            <!-- Form -->
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <form asp-action="CreateOrEdit" method="post">
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label">Full Name</label>
+                            <input asp-for="FullName" class="form-control" placeholder="Enter full name" />
+                            <span asp-validation-for="FullName" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email Address</label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter email address" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-3">
+                            <label asp-for="Phone" class="form-label">Phone Number</label>
+                            <input asp-for="Phone" class="form-control" placeholder="Enter contact number" />
+                            <span asp-validation-for="Phone" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="mb-3">
+                            <label asp-for="Address" class="form-label">Address</label>
+                            <textarea asp-for="Address" class="form-control" rows="3" placeholder="Enter your address"></textarea>
+                            <span asp-validation-for="Address" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Register Date -->
+                        <div class="mb-4">
+                            <label asp-for="RegisterDate" class="form-label">Registration Date</label>
+                            <input asp-for="RegisterDate" class="form-control" type="date" />
+                            <span asp-validation-for="RegisterDate" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>Back
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i>Register Buyer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        padding: 10px 12px;
+    }
+
+        .form-control:focus {
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+
+    .text-danger.small {
+        font-size: 0.85rem;
+        margin-top: 4px;
+        display: block;
+    }
+
+    .btn-primary {
+        padding: 8px 25px;
+    }
+
+    .btn-outline-secondary {
+        padding: 8px 20px;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+@* @model Buyer
+
+@{
+    ViewData["Title"] = "Register Buyer";
+}
+
 <h2 class="text-center mb-4">Register Buyer</h2>
 
 <div class="row justify-content-center">
@@ -47,3 +160,4 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+ *@

@@ -1,5 +1,470 @@
 ﻿@model Buyer
 
+@{
+    ViewData["Title"] = "Buyer Details";
+}
+
+<div class="container-fluid py-4">
+    <!-- Page Header -->
+    <div class="page-header mb-5">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="h2 fw-bold text-primary mb-1">
+                    <i class="fas fa-user-tag me-2"></i>Buyer Details
+                </h1>
+                <p class="text-muted mb-0">Complete information about the buyer</p>
+            </div>
+            <div>
+                <span class="badge bg-primary fs-6 p-2 px-3">
+                    <i class="fas fa-id-card me-1"></i> ID: @Model.Id.ToString("D4")
+                </span>
+            </div>
+        </div>
+        <hr class="my-4">
+    </div>
+
+    <div class="row">
+        <!-- Main Details Card -->
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg mb-4">
+                <!-- Header with Buyer Name -->
+                <div class="card-header bg-primary text-white py-4">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-white text-primary rounded-circle p-3 me-3">
+                            <i class="fas fa-user fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="h4 mb-1">@Model.FullName</h3>
+                            <p class="mb-0 opacity-75">Registered Buyer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Details Body -->
+                <div class="card-body p-4">
+                    <div class="row">
+                        <!-- Personal Information -->
+                        <div class="col-md-6">
+                            <div class="mb-5">
+                                <h5 class="border-bottom pb-2 mb-4">
+                                    <i class="fas fa-user-circle me-2 text-primary"></i>Personal Information
+                                </h5>
+
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-id-card text-primary me-2" style="width: 24px;"></i>
+                                        <span class="fw-semibold">Buyer ID:</span>
+                                    </div>
+                                    <div class="ps-4">
+                                        <span class="badge bg-primary bg-opacity-10 text-primary p-2">@Model.Id.ToString("D4")</span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-user text-primary me-2" style="width: 24px;"></i>
+                                        <span class="fw-semibold">Full Name:</span>
+                                    </div>
+                                    <div class="ps-4">
+                                        <p class="mb-0">@Model.FullName</p>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-calendar-alt text-primary me-2" style="width: 24px;"></i>
+                                        <span class="fw-semibold">Registration Date:</span>
+                                    </div>
+                                    <div class="ps-4">
+                                        <p class="mb-0">
+                                            <i class="far fa-calendar me-1 text-muted"></i>
+                                            @Model.RegisterDate.ToString("dddd, MMMM dd, yyyy")
+                                        </p>
+                                        <small class="text-muted">@Model.RegisterDate.ToString("hh:mm tt")</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="col-md-6">
+                            <div class="mb-5">
+                                <h5 class="border-bottom pb-2 mb-4">
+                                    <i class="fas fa-address-book me-2 text-primary"></i>Contact Information
+                                </h5>
+
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-envelope text-primary me-2" style="width: 24px;"></i>
+                                        <span class="fw-semibold">Email Address:</span>
+                                    </div>
+                                    <div class="ps-4">
+                                        <p class="mb-0">
+                                            <a href="mailto:@Model.Email" class="text-decoration-none">
+                                                <i class="far fa-envelope me-1"></i>@Model.Email
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-phone text-primary me-2" style="width: 24px;"></i>
+                                        <span class="fw-semibold">Phone Number:</span>
+                                    </div>
+                                    <div class="ps-4">
+                                        <p class="mb-0">
+                                            <a href="tel:@Model.Phone" class="text-decoration-none">
+                                                <i class="fas fa-phone-alt me-1"></i>@Model.Phone
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-map-marker-alt text-primary me-2" style="width: 24px;"></i>
+                                        <span class="fw-semibold">Registration Status:</span>
+                                    </div>
+                                    <div class="ps-4">
+                                        <span class="badge bg-success p-2">
+                                            <i class="fas fa-check-circle me-1"></i>Active Buyer
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Section -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="border-bottom pb-2 mb-4">
+                                <i class="fas fa-home me-2 text-primary"></i>Address Information
+                            </h5>
+
+                            <div class="card border-light bg-light">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="fas fa-map-pin fa-2x text-primary"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="fw-semibold mb-2">Complete Address</h6>
+                                            <p class="mb-0">@Model.Address</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Actions -->
+                <div class="card-footer bg-light py-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>
+                                Last viewed: @DateTime.Now.ToString("MMM dd, yyyy hh:mm tt")
+                            </small>
+                        </div>
+                        <div>
+                            <a asp-action="CreateOrEdit" asp-route-id="@Model.Id" class="btn btn-warning me-2">
+                                <i class="fas fa-edit me-1"></i>Edit Buyer
+                            </a>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-list me-1"></i>Back to List
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Stats -->
+        <div class="col-lg-4">
+            <!-- Quick Stats -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-chart-bar me-2"></i>Quick Stats
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6 mb-4">
+                            <div class="display-6 fw-bold text-primary">0</div>
+                            <small class="text-muted">Total Orders</small>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="display-6 fw-bold text-success">$0.00</div>
+                            <small class="text-muted">Total Spent</small>
+                        </div>
+                        <div class="col-6">
+                            <div class="display-6 fw-bold text-warning">0</div>
+                            <small class="text-muted">Pending</small>
+                        </div>
+                        <div class="col-6">
+                            <div class="display-6 fw-bold text-danger">0</div>
+                            <small class="text-muted">Cancelled</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Actions -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-paper-plane me-2"></i>Quick Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-envelope me-2"></i>Send Email
+                        </button>
+                        <button class="btn btn-outline-success btn-lg">
+                            <i class="fas fa-sms me-2"></i>Send SMS
+                        </button>
+                        <button class="btn btn-outline-info btn-lg">
+                            <i class="fas fa-file-invoice me-2"></i>Create Order
+                        </button>
+                        <button class="btn btn-outline-warning btn-lg">
+                            <i class="fas fa-print me-2"></i>Print Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Card -->
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2 text-primary"></i>Information
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-light border" role="alert">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-user-clock text-primary"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="alert-heading mb-2">Member Since</h6>
+                                <p class="mb-0">@Model.RegisterDate.ToString("MMMM yyyy")</p>
+                                <small class="text-muted">@((DateTime.Now - Model.RegisterDate).Days) days ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-light border" role="alert">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-shield-alt text-success"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="alert-heading mb-2">Account Status</h6>
+                                <p class="mb-0">Active & Verified</p>
+                                <small class="text-muted">Ready for transactions</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+    }
+
+    .card {
+        border-radius: 10px;
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+    .card-header {
+        border-radius: 10px 10px 0 0 !important;
+    }
+
+    .badge {
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .display-6 {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .border-bottom {
+        border-bottom: 2px solid #e9ecef !important;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .page-header {
+            text-align: center;
+        }
+
+        .display-6 {
+            font-size: 2rem;
+        }
+
+        .btn-lg {
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    /* Custom animation for stats */
+    .display-6 {
+        transition: all 0.3s ease;
+    }
+
+        .display-6:hover {
+            transform: scale(1.1);
+        }
+
+    /* Hover effects for quick action buttons */
+    .btn-outline-primary:hover,
+    .btn-outline-success:hover,
+    .btn-outline-info:hover,
+    .btn-outline-warning:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Alert styling */
+    .alert-light {
+        background-color: rgba(248, 249, 250, 0.5);
+    }
+
+    /* Icon colors */
+    .fa-user-circle,
+    .fa-address-book,
+    .fa-home,
+    .fa-user-tag,
+    .fa-chart-bar,
+    .fa-paper-plane,
+    .fa-info-circle {
+        color: var(--bs-primary);
+    }
+</style>
+
+<!-- Print Styles -->
+<style media="print">
+    .btn, .card-footer, .col-lg-4 {
+        display: none !important;
+    }
+
+    .card {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+    }
+
+    body {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Print button functionality
+            $('.btn-outline-warning').on('click', function() {
+                window.print();
+            });
+
+            // Email button functionality
+            $('.btn-outline-primary').on('click', function() {
+                var email = '@Model.Email';
+                if (email) {
+                    window.location.href = 'mailto:' + email;
+                } else {
+                    alert('No email address available');
+                }
+            });
+
+            // SMS button functionality
+            $('.btn-outline-success').on('click', function() {
+                var phone = '@Model.Phone';
+                if (phone) {
+                    window.location.href = 'sms:' + phone.replace(/\D/g, '');
+                } else {
+                    alert('No phone number available');
+                }
+            });
+
+            // Tooltips for buttons
+            $('[data-bs-toggle="tooltip"]').tooltip();
+
+            // Animate stats on hover
+            $('.display-6').hover(
+                function() {
+                    $(this).css('transform', 'scale(1.1)');
+                },
+                function() {
+                    $(this).css('transform', 'scale(1)');
+                }
+            );
+
+            // Copy email to clipboard
+            $('a[href^="mailto:"]').on('click', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    var email = '@Model.Email';
+                    navigator.clipboard.writeText(email).then(function() {
+                        alert('Email copied to clipboard: ' + email);
+                    });
+                }
+            });
+
+            // Copy phone to clipboard
+            $('a[href^="tel:"]').on('click', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    var phone = '@Model.Phone';
+                    navigator.clipboard.writeText(phone).then(function() {
+                        alert('Phone number copied to clipboard: ' + phone);
+                    });
+                }
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* @model Buyer
+
 <h2 class="text-center mb-4">Buyer Details</h2>
 
 <div class="card shadow-sm">
@@ -32,3 +497,4 @@
         <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </div>
 </div>
+ *@
