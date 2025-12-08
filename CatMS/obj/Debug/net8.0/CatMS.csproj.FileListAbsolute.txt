@@ -1180,8 +1180,8 @@ C:\Users\NP\Desktop\SW2\University-CMS\CatMS\obj\Debug\net8.0\CatMS.genruntimeco
 C:\Users\NP\Desktop\SW2\University-CMS\CatMS\obj\Debug\net8.0\ref\CatMS.dll
 C:\Users\NP\Desktop\University-CMS\CatMS\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\NP\Desktop\University-CMS\CatMS\bin\Debug\net8.0\appsettings.json
-C:\Users\NP\Desktop\University-CMS\CatMS\bin\Debug\net8.0\CatMS.staticwebassets.endpoints.json
 C:\Users\NP\Desktop\University-CMS\CatMS\bin\Debug\net8.0\CatMS.staticwebassets.runtime.json
+C:\Users\NP\Desktop\University-CMS\CatMS\bin\Debug\net8.0\CatMS.staticwebassets.endpoints.json
 C:\Users\NP\Desktop\University-CMS\CatMS\bin\Debug\net8.0\CatMS.exe
 C:\Users\NP\Desktop\University-CMS\CatMS\bin\Debug\net8.0\CatMS.deps.json
 C:\Users\NP\Desktop\University-CMS\CatMS\bin\Debug\net8.0\CatMS.runtimeconfig.json

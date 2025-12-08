@@ -1,7 +1,9 @@
+using CatMS;
 using CatMS.Data;
 using CatMS.Repositorys;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using static CatMS.Auth_IdentityModel.IdentityModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,19 +13,23 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(x=>x.UseSqlServer(builder.Configuration.GetConnectionString("Coon")));
 
 
-builder.Services.AddDbContext<AuthDbContext>(p => p.UseSqlServer(builder.Configuration.GetConnectionString("AuthDbConnectionString")));
 
-builder.Services.Configure<IdentityOptions>(options =>
+
+// Add Identity with custom classes and long key
+builder.Services.AddIdentity<User, Role>(options =>
 {
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
-    options.Password.RequireNonAlphanumeric = true;
-    options.Password.RequireUppercase = true;
+    options.Password.RequireUppercase = false;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
-});
+builder.Services.AddScoped<IAuthService, AuthService>();
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AuthDbContext>();
+
 
 
 
@@ -37,6 +43,7 @@ builder.Services.AddScoped<ISellerRepostory, SellerRepostory>();
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
 
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -47,11 +54,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 

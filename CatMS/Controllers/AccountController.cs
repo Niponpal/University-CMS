@@ -1,118 +1,91 @@
-﻿using CatMS.Models;
+﻿using CatMS.Models.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static CatMS.Auth_IdentityModel.IdentityModel;
 
-namespace CatMS.Controllers
+namespace CatMS.Controllers;
+public class AccountController : Controller
 {
-    public class AccountController : Controller
+    private readonly SignInManager<User> _signInManager;
+    private readonly UserManager<User> _userManager;
+    private readonly IAuthService _authService;
+
+
+    public AccountController(
+        SignInManager<User> signInManager,
+        UserManager<User> userManager,
+        IAuthService authService)
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        _signInManager = signInManager;
+        _userManager = userManager;
+        _authService = authService;
+    }
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+    [HttpGet]
+    [AllowAnonymous]
+    public IActionResult Register()
+    {
+        return View(new RegisterViewModel());
+    }
+
+    [HttpPost]
+    [AllowAnonymous]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = "/Dashboard")
+    {
+        if (!ModelState.IsValid)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
-
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var identityUser = new IdentityUser
-                {
-                    Email = registerViewModel.Email,
-                    UserName = registerViewModel.Username
-                };
-
-                var identityResult = await _userManager.CreateAsync(identityUser, registerViewModel.Password);
-
-                if (identityResult.Succeeded)
-                {
-                    // assign this user the user role 
-
-                    var roleIdentityResult = await _userManager.AddToRoleAsync(identityUser, "User");
-
-                    if (roleIdentityResult.Succeeded)
-                    {
-                        // show succeeded notification 
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-            }
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult Login(string ReturnUrl)
-        {
-            var model = new LoginViewModel
-            {
-                ReturnUrl = ReturnUrl
-            };
-
             return View(model);
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+        var result = await _authService.Register(model);
+        if (!result.Success)
         {
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("AccessDenied", "Account");
-            }
-
-            var signInResult = await _signInManager.PasswordSignInAsync(
-                loginViewModel.Username,
-                loginViewModel.Password,
-                isPersistent: false,
-                lockoutOnFailure: false);
-
-            if (signInResult.Succeeded)
-            {
-                var user = await _userManager.FindByNameAsync(loginViewModel.Username);
-
-                if (user != null)
-                {
-                    var roles = await _userManager.GetRolesAsync(user);
-
-                    if (roles.Contains("User"))
-                    {
-                        // Redirect Admin to Admin Area Dashboard
-                        return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
-                    }
-                }
-
-                //if (!string.IsNullOrWhiteSpace(loginViewModel.ReturnUrl))
-                //{
-                //    return Redirect(loginViewModel.ReturnUrl);
-                //}
-
-                //return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
-            }
-
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-            return View(loginViewModel);
+            result.Errors.ForEach(e => ModelState.AddModelError("", e));
+            return View(model);
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Logout()
+        var user = await _signInManager.UserManager.FindByIdAsync(result.UserId.ToString());
+        if (user != null)
         {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            await _signInManager.SignInAsync(user, false);
         }
-
-        [HttpGet]
-        public async Task<IActionResult> AccessDenied()
-        {
-            return View();
-        }
+        return RedirectToAction("Index", "Home");
     }
+
+    [HttpPost]
+    [AllowAnonymous]
+    public async Task<IActionResult> Login(LoginViewModel model)
+    {
+        if (!ModelState.IsValid)
+            return View(model);
+
+        var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+        if (result.Succeeded)
+            return LocalRedirect("/Admin/Dashboard/Index");
+        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+        return View(model);
+    }
+    [HttpPost]
+    public async Task<IActionResult> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
+    }
+
+
+    [HttpGet]
+    [AllowAnonymous]
+    public IActionResult Login()
+    {
+        return View();
+    }
+
+    [HttpGet]
+    [AllowAnonymous]
+    public IActionResult AccessDenied(string returnUrl = null)
+    {
+        ViewData["ReturnUrl"] = returnUrl;
+        return View();
+    }
+
 }

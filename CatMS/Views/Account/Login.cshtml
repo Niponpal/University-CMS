@@ -1,4 +1,4 @@
-﻿@model LoginViewModel
+﻿@model CatMS.Models.Auth.LoginViewModel
 
 <!-- Bootstrap 5 CSS -->
 
@@ -275,7 +275,7 @@
                         <form asp-action="Login" method="post" novalidate>
                             <!-- Username/Email -->
                             <div class="input-group-custom">
-                                <label asp-for="Username" class="form-label">
+                                <label asp-for="Email" class="form-label">
                                     <i class="bi bi-person"></i>
                                     Username or Email
                                 </label>
@@ -283,13 +283,13 @@
                                     <span class="input-icon">
                                         <i class="bi bi-person-fill"></i>
                                     </span>
-                                    <input asp-for="Username"
+                                    <input asp-for="Email"
                                            class="form-control form-control-custom"
                                            placeholder="Enter username or email"
                                            type="text"
                                            required>
                                 </div>
-                                <span asp-validation-for="Username" class="text-danger validation-message"></span>
+                                <span asp-validation-for="Email" class="text-danger validation-message"></span>
                             </div>
 
                             <!-- Password -->
