@@ -34,9 +34,10 @@ public class ApplicationDbContext : IdentityDbContext<
            .WithMany(s => s.Cats)
            .HasForeignKey(c => c.SellerId)
            .OnDelete(DeleteBehavior.Cascade);
+            
 
         // Buyer → Cat (1-M)
-        modelBuilder.Entity<Cat>()
+              modelBuilder.Entity<Cat>()
             .HasOne(c => c.Buyer)
             .WithMany(b => b.Cats)
             .HasForeignKey(c => c.BuyerId)
