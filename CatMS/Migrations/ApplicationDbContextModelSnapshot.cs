@@ -205,7 +205,7 @@ namespace CatMS.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca7b59b0-c110-4da9-914f-a937ce8d1b75",
+                            ConcurrencyStamp = "e37b11a8-6a3d-47f0-8827-ecbabb884818",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "admin@localhost.com",
@@ -214,9 +214,9 @@ namespace CatMS.Migrations
                             Name = "",
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENPAlNWu5mndd4/ZKJ+EOdEAVYX1D1XM+zFvBuvRw87ARAix+viNl3dVOxlR6Onitg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENf7yOPAPJmshrLINDP88s0Xurb3EAdXS0yUX/PQCTjw65vWUlc8+e7bLzIRdI8+bQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7b92edb5-c7bc-4103-b7f7-952ae1f594c4",
+                            SecurityStamp = "f8e74d28-89d5-4b9e-b873-18309ff68a76",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -224,7 +224,7 @@ namespace CatMS.Migrations
                         {
                             Id = 2L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "937f095d-958d-4a8a-934d-cb2b7df6a8af",
+                            ConcurrencyStamp = "3e4b1531-f566-41fa-a8ba-2f59d7e462df",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "employee@localhost.com",
@@ -233,9 +233,9 @@ namespace CatMS.Migrations
                             Name = "",
                             NormalizedEmail = "EMPLOYEE@LOCALHOST.COM",
                             NormalizedUserName = "EMPLOYEE@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFHfzNRaJ/kQdhvLdm+VmuPf/H/Nj8glkd2H+4gD9OxmUy3+U1EoD3yyi+cxkUxKdg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECsr4BSVRBjX+zmEfNo2ykl8VJ0GS3dBQ+kZ/NaDyobwuawDGrDcARZxwHgt6ESvyg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f892e979-1832-4856-bd9b-ff8a1bd7ac5f",
+                            SecurityStamp = "1f3fb88a-03d8-4344-a384-a62af5b51daf",
                             TwoFactorEnabled = false,
                             UserName = "employee@localhost.com"
                         });

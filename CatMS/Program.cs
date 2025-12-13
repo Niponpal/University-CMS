@@ -1,5 +1,6 @@
 using CatMS;
 using CatMS.Data;
+using CatMS.Helper;
 using CatMS.Repositorys;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -42,7 +43,7 @@ builder.Services.AddScoped<ISellerRepostory, SellerRepostory>();
 // Register the Cloudinary service
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
 
-
+builder.Services.AddTransient<ISignInHelper, SignInHelper>();
 
 var app = builder.Build();
 
