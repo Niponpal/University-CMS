@@ -205,7 +205,7 @@ namespace CatMS.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fe20606c-16e0-41f3-a08b-843bfc2fd262",
+                            ConcurrencyStamp = "ca7b59b0-c110-4da9-914f-a937ce8d1b75",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "admin@localhost.com",
@@ -214,9 +214,9 @@ namespace CatMS.Migrations
                             Name = "",
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEDIfDigVI7Nr1F+8YGxMuC8+vzf/vuBEKMzyFieQXm5+pNma9FPJ8nGWhaQecuVyg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENPAlNWu5mndd4/ZKJ+EOdEAVYX1D1XM+zFvBuvRw87ARAix+viNl3dVOxlR6Onitg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f4af9ea6-3ab7-42fd-abbc-dff42672b08c",
+                            SecurityStamp = "7b92edb5-c7bc-4103-b7f7-952ae1f594c4",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -224,7 +224,7 @@ namespace CatMS.Migrations
                         {
                             Id = 2L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "88d70dbb-0fd4-47b7-aca6-76573643888e",
+                            ConcurrencyStamp = "937f095d-958d-4a8a-934d-cb2b7df6a8af",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "employee@localhost.com",
@@ -233,9 +233,9 @@ namespace CatMS.Migrations
                             Name = "",
                             NormalizedEmail = "EMPLOYEE@LOCALHOST.COM",
                             NormalizedUserName = "EMPLOYEE@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMpouQyjZCGX19M+uKEMgJ+cMUHzYZ1E52JbNMKEONhHhkPaJxyAr2nbKtsLXCuXrg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFHfzNRaJ/kQdhvLdm+VmuPf/H/Nj8glkd2H+4gD9OxmUy3+U1EoD3yyi+cxkUxKdg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "15003cee-54e5-4575-9b1b-53e8079b87ff",
+                            SecurityStamp = "f892e979-1832-4856-bd9b-ff8a1bd7ac5f",
                             TwoFactorEnabled = false,
                             UserName = "employee@localhost.com"
                         });
@@ -420,6 +420,47 @@ namespace CatMS.Migrations
                     b.ToTable("Cats");
                 });
 
+            modelBuilder.Entity("CatMS.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BuyerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CatId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BuyerId");
+
+                    b.HasIndex("CatId");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("CatMS.Models.Seller", b =>
                 {
                     b.Property<int>("Id")
@@ -526,6 +567,25 @@ namespace CatMS.Migrations
                     b.Navigation("Seller");
                 });
 
+            modelBuilder.Entity("CatMS.Models.Order", b =>
+                {
+                    b.HasOne("CatMS.Models.Buyer", "Buyer")
+                        .WithMany("Order")
+                        .HasForeignKey("BuyerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CatMS.Models.Cat", "Cat")
+                        .WithMany("Order")
+                        .HasForeignKey("CatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Buyer");
+
+                    b.Navigation("Cat");
+                });
+
             modelBuilder.Entity("CatMS.Models.Seller", b =>
                 {
                     b.HasOne("CatMS.Models.Cat", null)
@@ -536,10 +596,14 @@ namespace CatMS.Migrations
             modelBuilder.Entity("CatMS.Models.Buyer", b =>
                 {
                     b.Navigation("Cats");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("CatMS.Models.Cat", b =>
                 {
+                    b.Navigation("Order");
+
                     b.Navigation("sellers");
                 });
 

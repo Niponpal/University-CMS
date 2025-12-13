@@ -22,11 +22,8 @@ namespace CatMS.Models
         // Buyer Relation (optional)
         public int? BuyerId { get; set; }       // Nullable for SetNull on delete
         public Buyer Buyer { get; set; }
-
-
         public ICollection<Seller> sellers { get; set; }
-
-
+        public ICollection<Order> Order { get; set; }
     }
 }
 

@@ -11,5 +11,6 @@
 
         // Navigation property: One Buyer → Many Cats
         public ICollection<Cat> Cats { get; set; }
+        public ICollection<Order> Order { get; set; }
     }
 }

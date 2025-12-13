@@ -27,6 +27,8 @@ public class ApplicationDbContext : IdentityDbContext<
     public DbSet<Seller> Sellers { get; set; }
     public DbSet<Buyer> Buyers { get; set; }
 
+    public DbSet<Order> Orders { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cat>()
@@ -34,10 +36,22 @@ public class ApplicationDbContext : IdentityDbContext<
            .WithMany(s => s.Cats)
            .HasForeignKey(c => c.SellerId)
            .OnDelete(DeleteBehavior.Cascade);
-            
+
+        modelBuilder.Entity<Order>()
+          .HasOne(c => c.Buyer)
+          .WithMany(s => s.Order)
+          .HasForeignKey(c => c.BuyerId)
+          .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Order>()
+          .HasOne(c => c.Cat)
+          .WithMany(s => s.Order)
+          .HasForeignKey(c => c.CatId)
+          .OnDelete(DeleteBehavior.Cascade);
+
 
         // Buyer → Cat (1-M)
-              modelBuilder.Entity<Cat>()
+        modelBuilder.Entity<Cat>()
             .HasOne(c => c.Buyer)
             .WithMany(b => b.Cats)
             .HasForeignKey(c => c.BuyerId)
