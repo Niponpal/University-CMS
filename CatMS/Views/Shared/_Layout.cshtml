@@ -1,5 +1,6 @@
 ﻿@using CatMS.Auth_IdentityModel
 @using Microsoft.AspNetCore.Identity
+@inject CatMS.Helper.ISignInHelper signInHelper
 
 @using static CatMS.Auth_IdentityModel.IdentityModel
 @inject SignInManager<IdentityModel.User> signInManager
@@ -116,18 +117,33 @@
                     <div class="d-flex align-items-center ms-auto">
                         @if (signInManager.IsSignedIn(User))
                         {
-                            <!-- User Dropdown -->
-                            <div class="dropdown">
-                                <button class="btn btn-outline-primary dropdown-toggle d-flex align-items-center"
-                                        type="button" id="userDropdown" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                    <i class="bi bi-person-circle me-2"></i>
-                                    <span class="fw-medium">@User?.Identity?.Name</span>
+
+                        <div class="d-flex align-items-center gap-2">
+                            <a asp-controller="Home" asp-action="Index"
+                               class="btn btn-outline-primary d-flex align-items-center">
+                                <i class="bi bi-person me-2"></i> @signInHelper.Fullname
+                            </a>
+
+                            <form asp-controller="Account" asp-action="Logout" method="post">
+                                @Html.AntiForgeryToken()
+                                <button class="btn btn-outline-danger">
+                                    <i class="bi bi-box-arrow-right"></i>
                                 </button>
+                            </form>
+                        </div>
+
+
+                     @*        <!-- User Dropdown -->
+                            <div class="dropdown">
+                            <button class="btn btn-outline-primary dropdown-toggle d-flex align-items-center"
+                                    type="button" id="userDropdown" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <i class="bi bi-person-circle me-2"></i>
+                                <span class="fw-medium">@signInHelper.Fullname</span>
+                            </button>
                                 <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2"
                                     aria-labelledby="userDropdown">
-                                    <li>
-                                        
+                                    <li>                               
                                         <a class="dropdown-item d-flex align-items-center text-danger"
                                            asp-area="Home" asp-controller="Home" asp-action="Index">
                                             <i class="bi bi-person me-2"></i>Profile
@@ -151,13 +167,22 @@
                                     </form>
                                 </li>
                                 </ul>
-                            </div>
+                            </div> *@
 
-
-                        
+                     @*    <div class="d-flex gap-2">
+                            <a class="btn btn-outline-primary px-4 d-flex align-items-center"
+                               asp-area="" asp-controller="Account" asp-action="Login">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                            </a>
+                            <a class="btn btn-primary px-4 d-flex align-items-center text-white"
+                               asp-area="" asp-controller="Account" asp-action="Register">
+                                <i class="bi bi-person-plus me-2"></i>Register
+                            </a>
+                        </div> *@
+       
 
                         }
-                        else
+                         else
                         {
                             <!-- Auth Buttons -->
                             <div class="d-flex gap-2">
@@ -170,7 +195,7 @@
                                     <i class="bi bi-person-plus me-2"></i>Register
                                 </a>
                             </div>
-                        }
+                        } 
                     </div>
 
 
