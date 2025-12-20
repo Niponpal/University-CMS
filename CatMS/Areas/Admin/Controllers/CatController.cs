@@ -8,16 +8,11 @@ namespace CatMS.Areas.Admin.Controllers;
 public class CatController : Controller
 {
     private readonly ICatRepository _catRepository;
-    private readonly IBuyerRepository _buyerRepository;
-
-    private readonly ISellerRepostory _sellerRepository;
-
  
-    public CatController(ICatRepository catRepository, IBuyerRepository buyerRepository, ISellerRepostory sellerRepository)
+    public CatController(ICatRepository catRepository)
     {
         _catRepository = catRepository;
-        _buyerRepository = buyerRepository;
-        _sellerRepository = sellerRepository;
+        
     }
 
     public async Task<IActionResult> Index()
@@ -31,10 +26,10 @@ public class CatController : Controller
         if (id == 0)
         {
            
-            ViewData["SellerId"] = _sellerRepository.Dropdown();
+           
             return View(new Cat());
         }
-        ViewData["SellerId"] = _sellerRepository.Dropdown();
+        
         var data = await _catRepository.GetCatByIdAsync(id);
         return View(data);
     }

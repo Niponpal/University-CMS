@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CatMS.Models;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,11 +11,16 @@ public class IdentityModel
     [Table("Users")]
     public class User : IdentityUser<long>
     {
-        public string Name { get; set; } = string.Empty;
+        public string FullName { get; set; } = string.Empty; 
+        public string Phone { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public DateTime RegisterDate { get; set; } 
         public long CreatedBy { get; set; }
         public DateTimeOffset CreatedDate { get; set; }
         public long? UpdatedBy { get; set; }
         public DateTimeOffset? UpdatedDate { get; set; }
+        public ICollection<Order> Orders { get; set; }
+        public ICollection<Cat> Cats { get; set; }
     }
 
     // ------------------ Roles ------------------

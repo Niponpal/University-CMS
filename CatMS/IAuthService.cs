@@ -36,7 +36,7 @@ public class AuthService : IAuthService
             Email = request.Email,
             UserName = request.Email,
             PhoneNumber = request.PhoneNumber,
-            Name = request.FullName,
+            FullName = request.FullName,
             EmailConfirmed = true,
             SecurityStamp = Guid.NewGuid().ToString()
         };

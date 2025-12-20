@@ -29,17 +29,8 @@ builder.Services.AddIdentity<User, Role>(options =>
 .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
-
-
-
-
-
 // Register the Cat repository
 builder.Services.AddScoped<ICatRepository, CatRepository>();
-// Register the Buyer 
-builder.Services.AddScoped<IBuyerRepository, BuyerRepository>();
-// Register the Seller repository
-builder.Services.AddScoped<ISellerRepostory, SellerRepostory>();
 // Register the Cloudinary service
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
 
