@@ -14,7 +14,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(x=>x.UseSqlServer(builder.Configuration.GetConnectionString("Coon")));
 
 
-
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOrBuyer", policy =>
+        policy.RequireRole("Administrator", "Buyer"));
+});
 
 // Add Identity with custom classes and long key
 builder.Services.AddIdentity<User, Role>(options =>

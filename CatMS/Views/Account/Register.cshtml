@@ -1,6 +1,5 @@
 ﻿@model CatMS.Models.Auth.RegisterViewModel
 
-
 <style>
     :root {
         --primary-teal: #007c89;
@@ -194,24 +193,6 @@
             transform: translateY(0);
         }
 
-        .btn-register::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-
-        .btn-register:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-
     .divider {
         display: flex;
         align-items: center;
@@ -275,30 +256,36 @@
     }
 
     @@keyframes ripple {
-        0% {
-            transform: scale(0, 0);
-            opacity: 0.5;
-        }
+        0%
 
-        100% {
-            transform: scale(50, 50);
-            opacity: 0;
-        }
+    {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(50, 50);
+        opacity: 0;
+    }
+
     }
 
     @@media (max-width: 576px) {
-        .register-wrapper {
-            padding: 1rem;
+        .register-wrapper
+
+    {
+        padding: 1rem;
+    }
+
+    .register-header,
+    .register-body {
+        padding: 2rem 1.5rem;
+    }
+
+        .register-header h2 {
+            font-size: 1.75rem;
         }
 
-        .register-header,
-        .register-body {
-            padding: 2rem 1.5rem;
-        }
-
-            .register-header h2 {
-                font-size: 1.75rem;
-            }
     }
 </style>
 
@@ -316,27 +303,18 @@
                     <!-- Body -->
                     <div class="register-body">
                         <form asp-action="Register" method="post" novalidate>
-                            <!-- Username -->
+                            <!-- Full Name -->
                             <div class="input-group-custom">
                                 <label asp-for="FullName" class="form-label">
                                     <i class="bi bi-person"></i>
-                                    Username
+                                    Full Name
                                 </label>
                                 <div class="position-relative">
-                                    <span class="input-icon">
-                                        <i class="bi bi-person-fill"></i>
-                                    </span>
-                                    <input asp-for="FullName"
-                                           class="form-control form-control-custom"
-                                           placeholder="john.doe"
-                                           type="text"
-                                           required>
+                                    <span class="input-icon"><i class="bi bi-person-fill"></i></span>
+                                    <input asp-for="FullName" class="form-control form-control-custom" placeholder="John Doe" type="text" required />
                                 </div>
                                 <span asp-validation-for="FullName" class="text-danger validation-feedback"></span>
                             </div>
-
-
-
 
                             <!-- Email -->
                             <div class="input-group-custom">
@@ -345,25 +323,45 @@
                                     Email Address
                                 </label>
                                 <div class="position-relative">
-                                    <span class="input-icon">
-                                        <i class="bi bi-envelope-fill"></i>
-                                    </span>
-                                    <input asp-for="Email"
-                                           class="form-control form-control-custom"
-                                           placeholder="john@example.com"
-                                           type="email"
-                                           required>
+                                    <span class="input-icon"><i class="bi bi-envelope-fill"></i></span>
+                                    <input asp-for="Email" class="form-control form-control-custom" placeholder="john@example.com" type="email" required />
                                 </div>
                                 <span asp-validation-for="Email" class="text-danger validation-feedback"></span>
                             </div>
 
-
-                            <div class="form-group">
-                                <label asp-for="PhoneNumber" class="form-label"><i class="fas fa-phone me-1"></i>Phone</label>
-                                <input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number" />
-                                <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                            <!-- Phone -->
+                            <div class="input-group-custom">
+                                <label asp-for="PhoneNumber" class="form-label">
+                                    <i class="bi bi-telephone"></i>
+                                    Phone Number
+                                </label>
+                                <input asp-for="PhoneNumber" class="form-control form-control-custom" placeholder="Enter your phone number" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger validation-feedback"></span>
                             </div>
 
+                            <!-- Address -->
+                            <div class="input-group-custom">
+                                <label asp-for="Address" class="form-label">
+                                    <i class="bi bi-geo-alt"></i>
+                                    Address
+                                </label>
+                                <input asp-for="Address" class="form-control form-control-custom" placeholder="Enter your address" />
+                                <span asp-validation-for="Address" class="text-danger validation-feedback"></span>
+                            </div>
+
+                            <!-- Account Type -->
+                            <div class="input-group-custom">
+                                <label asp-for="AccountType" class="form-label">
+                                    <i class="bi bi-person-badge"></i>
+                                    Account Type
+                                </label>
+                                <select asp-for="AccountType" class="form-control form-control-custom">
+                                    <option value="">Select account type</option>
+                                    <option value="Buyer">Buyer</option>
+                                    <option value="Seller">Seller</option>
+                                </select>
+                                <span asp-validation-for="AccountType" class="text-danger validation-feedback"></span>
+                            </div>
 
                             <!-- Password -->
                             <div class="input-group-custom">
@@ -372,43 +370,35 @@
                                     Password
                                 </label>
                                 <div class="position-relative">
-                                    <span class="input-icon">
-                                        <i class="bi bi-key-fill"></i>
-                                    </span>
-                                    <input asp-for="Password"
-                                           class="form-control form-control-custom"
-                                           placeholder="Minimum 8 characters"
-                                           type="password"
-                                           id="password"
-                                           required
-                                           minlength="8">
+                                    <span class="input-icon"><i class="bi bi-key-fill"></i></span>
+                                    <input asp-for="Password" class="form-control form-control-custom" placeholder="Minimum 8 characters" type="password" id="password" minlength="8" required />
                                     <button type="button" class="password-toggle" id="togglePassword">
                                         <i class="bi bi-eye"></i>
                                     </button>
                                 </div>
-
-                                <!-- Password Strength Meter -->
                                 <div class="password-strength">
                                     <div class="strength-meter">
                                         <div class="strength-fill" id="strengthFill"></div>
                                     </div>
                                     <div class="strength-text" id="strengthText">Password strength</div>
                                 </div>
-
                                 <span asp-validation-for="Password" class="text-danger validation-feedback"></span>
                             </div>
 
                             <!-- Confirm Password -->
-                            <div class="form-group">
-                                <label asp-for="ConfirmPassword" class="form-label"><i class="fas fa-lock me-1"></i>Confirm Password</label>
-                                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm password" />
-                                <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                            <div class="input-group-custom">
+                                <label asp-for="ConfirmPassword" class="form-label">
+                                    <i class="bi bi-lock-fill"></i>
+                                    Confirm Password
+                                </label>
+                                <input asp-for="ConfirmPassword" type="password" class="form-control form-control-custom" placeholder="Confirm password" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger validation-feedback"></span>
                             </div>
 
                             <!-- Terms and Conditions -->
                             <div class="terms-check">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                    <input class="form-check-input" type="checkbox" id="termsCheck" required />
                                     <label class="form-check-label" for="termsCheck">
                                         I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
                                     </label>
@@ -425,8 +415,7 @@
 
                             <!-- Login Link -->
                             <div class="login-link">
-                                Already have an account?
-                                <a asp-controller="Account" asp-action="Login">Sign In</a>
+                                Already have an account? <a asp-controller="Account" asp-action="Login">Sign In</a>
                             </div>
                         </form>
                     </div>
@@ -438,10 +427,9 @@
 
 <script>
     // Toggle password visibility
-    document.getElementById('togglePassword').addEventListener('click', function() {
+    document.getElementById('togglePassword').addEventListener('click', function () {
         const passwordInput = document.getElementById('password');
         const icon = this.querySelector('i');
-
         if (passwordInput.type === 'password') {
             passwordInput.type = 'text';
             icon.classList.remove('bi-eye');
@@ -454,46 +442,18 @@
     });
 
     // Password strength indicator
-    document.getElementById('password').addEventListener('input', function(e) {
+    document.getElementById('password').addEventListener('input', function (e) {
         const password = e.target.value;
         const strengthFill = document.getElementById('strengthFill');
         const strengthText = document.getElementById('strengthText');
-
         let strength = 0;
         let messages = [];
+        if (password.length >= 8) strength += 25; else messages.push('At least 8 characters');
+        if (/[A-Z]/.test(password)) strength += 25; else messages.push('One uppercase letter');
+        if (/[0-9]/.test(password)) strength += 25; else messages.push('One number');
+        if (/[^A-Za-z0-9]/.test(password)) strength += 25; else messages.push('One special character');
 
-        // Length check
-        if (password.length >= 8) {
-            strength += 25;
-        } else {
-            messages.push('At least 8 characters');
-        }
-
-        // Uppercase check
-        if (/[A-Z]/.test(password)) {
-            strength += 25;
-        } else {
-            messages.push('One uppercase letter');
-        }
-
-        // Number check
-        if (/[0-9]/.test(password)) {
-            strength += 25;
-        } else {
-            messages.push('One number');
-        }
-
-        // Special character check
-        if (/[^A-Za-z0-9]/.test(password)) {
-            strength += 25;
-        } else {
-            messages.push('One special character');
-        }
-
-        // Update meter
         strengthFill.style.width = strength + '%';
-
-        // Update color and text
         if (strength < 50) {
             strengthFill.style.backgroundColor = '#dc3545';
             strengthText.textContent = messages.length > 0 ? messages.join(', ') : 'Weak';
@@ -506,10 +466,9 @@
         }
     });
 
-    // Form validation
-    document.querySelector('form').addEventListener('submit', function(e) {
+    // Terms validation
+    document.querySelector('form').addEventListener('submit', function (e) {
         const termsCheck = document.getElementById('termsCheck');
-
         if (!termsCheck.checked) {
             e.preventDefault();
             termsCheck.classList.add('is-invalid');

@@ -6,7 +6,7 @@ namespace CatMS.Areas.Admin.Controllers;
 public class DashboardController : Controller
 {   
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Administrator,Seller")]
     public IActionResult Index()
     {
         return View();

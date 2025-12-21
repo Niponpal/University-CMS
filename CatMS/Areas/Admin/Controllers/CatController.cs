@@ -1,18 +1,23 @@
-﻿using CatMS.Models;
+﻿using CatMS.Helper;
+using CatMS.Models;
 using CatMS.Repositorys;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatMS.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = "Administrator,Seller")]
 public class CatController : Controller
 {
     private readonly ICatRepository _catRepository;
- 
-    public CatController(ICatRepository catRepository)
+   private readonly ISignInHelper _signInHelper;
+
+
+    public CatController(ICatRepository catRepository, ISignInHelper signInHelper)
     {
         _catRepository = catRepository;
-        
+        _signInHelper = signInHelper;
     }
 
     public async Task<IActionResult> Index()
@@ -25,8 +30,6 @@ public class CatController : Controller
     {
         if (id == 0)
         {
-           
-           
             return View(new Cat());
         }
         
@@ -36,6 +39,7 @@ public class CatController : Controller
     [HttpPost]
     public async Task<IActionResult> CreateOrEdit(Cat cat)
     {
+         cat.SellerId = _signInHelper.UserId ?? 0;
         if (cat.Id == 0)
         {
             await _catRepository.AddCatAsync(cat);

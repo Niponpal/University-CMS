@@ -15,9 +15,17 @@ public class RegisterViewModel
     public string Email { get; set; }
 
     [Required]
+    
+    [Display(Name = "Address")]
+    public string Address { get; set; }
+
+    [Required]
     [Phone]
     [Display(Name = "Phone Number")]
     public string PhoneNumber { get; set; }
+    [Required]
+    [Display(Name = "Account Type")]
+    public string AccountType { get; set; }//Byer seller
 
     [Required]
     [MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]

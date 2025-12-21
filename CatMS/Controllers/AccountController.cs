@@ -32,25 +32,49 @@ public class AccountController : Controller
     [HttpPost]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = "/Dashboard")
+    public async Task<IActionResult> Register(RegisterViewModel model)
     {
         if (!ModelState.IsValid)
-        {
             return View(model);
-        }
+
         var result = await _authService.Register(model);
+
         if (!result.Success)
         {
             result.Errors.ForEach(e => ModelState.AddModelError("", e));
             return View(model);
         }
-        var user = await _signInManager.UserManager.FindByIdAsync(result.UserId.ToString());
-        if (user != null)
+
+        var user = await _userManager.FindByIdAsync(result.UserId.ToString());
+        if (user == null)
+            return RedirectToAction("Index", "Home");
+
+        // Add role
+        await _userManager.AddToRoleAsync(user, model.AccountType);
+
+        // Sign in user
+        await _signInManager.SignInAsync(user, isPersistent: false);
+
+        // Role based redirect
+        if (await _userManager.IsInRoleAsync(user, "Administrator") ||
+            await _userManager.IsInRoleAsync(user, "Seller"))
         {
-            await _signInManager.SignInAsync(user, false);
+            return RedirectToAction(
+                actionName: "Index",
+                controllerName: "Dashboard",
+                routeValues: new { area = "Admin" }
+            );
         }
+
+        if (await _userManager.IsInRoleAsync(user, "Buyer"))
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
         return RedirectToAction("Index", "Home");
     }
+
+
 
     [HttpPost]
     [AllowAnonymous]
