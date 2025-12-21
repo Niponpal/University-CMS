@@ -3,7 +3,7 @@
 public class HomeViewModel
 {
     // Cat info
-    public int CatId { get; set; }
+    public long CatId { get; set; }
     public string Name { get; set; }
     public string Breed { get; set; }
     public int Age { get; set; }

@@ -8,13 +8,21 @@ namespace CatMS.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-  
+    private readonly ICatRepository _catRepository;
 
-    public HomeController(ILogger<HomeController> logger)
+
+    public HomeController(ILogger<HomeController> logger, ICatRepository catRepository)
     {
         _logger = logger;
-        
-      
+        _catRepository = catRepository;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        List<HomeViewModel> homeViews = new List<HomeViewModel>();
+        homeViews = await _catRepository.GetHomeViewModelCat();
+        return View(homeViews);
+
     }
 
    

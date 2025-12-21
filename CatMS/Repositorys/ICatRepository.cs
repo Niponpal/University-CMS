@@ -10,5 +10,7 @@ namespace CatMS.Repositorys
         Task<Cat> UpdateCatAsync(Cat cat);
         Task<Cat> DeleteCatAsync(int id);
         Task<Cat> GetByUrlHandleAsync(string urlHandle);
+
+        Task<List<HomeViewModel>> GetHomeViewModelCat();
     }
 }
