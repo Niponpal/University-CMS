@@ -35,8 +35,13 @@ builder.Services.AddIdentity<User, Role>(options =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 // Register the Cat repository
 builder.Services.AddScoped<ICatRepository, CatRepository>();
+
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 // Register the Cloudinary service
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
+
+
+
 
 builder.Services.AddTransient<ISignInHelper, SignInHelper>();
 

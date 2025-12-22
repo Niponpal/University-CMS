@@ -1,54 +1,62 @@
-﻿using CatMS.Data;
-using CatMS.Helper;
+﻿using CatMS.Helper;
 using CatMS.Models;
+using CatMS.Repositorys;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
-namespace CatMS.Controllers;
-
-public class OrderController(ApplicationDbContext _context, ISignInHelper signInHelper) : Controller
+namespace CatMS.Controllers
 {
-    public IActionResult PlaceOrder(int catId)
+    public class OrderController : Controller
     {
-        //if (!User.Identity.IsAuthenticated)
-        //{
-        //    return RedirectToAction("Login", "Account", new
-        //    {
-        //        ReturnUrl = Url.Action("PlaceOrder", "Order", new { catId})
-        //    });
-        //}
-        //else
-        //{
-            var cat = _context.Cats.Find(catId);
-            if (cat == null) return NotFound();
-        var order = new Order
+        private readonly IOrderRepository _orderRepository;
+        private readonly ISignInHelper _signInHelper;
+
+        public OrderController(
+            IOrderRepository orderRepository,
+            ISignInHelper signInHelper)
         {
-            CatId = cat.Id,
-            TotalAmount = cat.Price,
-            OrderDate = DateTime.Now,
-            BuyerId = (int)(signInHelper.UserId ?? 1)
-        };
+            _orderRepository = orderRepository;
+            _signInHelper = signInHelper;
+        }
+
+        public IActionResult PlaceOrder(int catId)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account", new
+                {
+                    ReturnUrl = Url.Action("PlaceOrder", "Order", new { catId })
+                });
+            }
+
+            var cat = _orderRepository.GetCatById(catId);
+            if (cat == null) return NotFound();
+
+            var order = new Order
+            {
+                CatId = cat.Id,
+                TotalAmount = cat.Price,
+                OrderDate = DateTime.Now,
+                BuyerId = (int)(_signInHelper.UserId ?? 1)
+            };
+
             return View(order);
-       
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ConfirmOrder(Order order)
+        {
+            order.OrderDate = DateTime.Now;
+
+            _orderRepository.AddOrder(order);
+            _orderRepository.Save();
+
+            return RedirectToAction("Success");
+        }
+
+        public IActionResult Success()
+        {
+            return View();
+        }
     }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult ConfirmOrder(Order order)
-    {
-       
-
-        order.OrderDate = DateTime.Now;
-
-        _context.Orders.Add(order);
-        _context.SaveChanges();
-
-        return RedirectToAction("Success");
-    }
-
-    public IActionResult Success()
-    {
-        return View();
-    }
-
 }

@@ -25,7 +25,18 @@ public class HomeController : Controller
 
     }
 
-   
+    public async Task<IActionResult> Details(int id)
+    {
+        var homeView = await _catRepository.GetHomeViewDetals(id);
+
+        if (homeView == null)
+            return NotFound();
+
+        return View(homeView);
+    }
+
+    
+
 
     public IActionResult Privacy()
     {

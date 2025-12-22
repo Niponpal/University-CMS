@@ -50,6 +50,33 @@ public class CatRepository : ICatRepository
     
     }
 
+    public async Task<HomeViewModel> GetHomeViewDetals(int CatId)
+    {
+        var data = await _context.Cats
+            .Include(c => c.Seller)
+            .Select(c => new HomeViewModel
+            {// Cat info
+                CatId = c.Id,
+                Name = c.Name,
+                Breed = c.Breed,
+                Age = c.Age,
+                Gender = c.Gender,
+                Price = c.Price,
+                Color = c.Color,
+                Description = c.Description,
+                ImageUrl = c.ImageUrl,
+                PostedDate = c.PostedDate,
+                // Seller info
+
+                SellerName = c.Seller.FullName,
+                SellerEmail = c.Seller.Email,
+                SellerPhone = c.Seller.Phone,
+                SellerAddress = c.Seller.Address
+            }
+            ).FirstOrDefaultAsync();
+        return data;
+    }
+
     public async Task<List<HomeViewModel>> GetHomeViewModelCat()
     {
         var data = await _context.Cats
