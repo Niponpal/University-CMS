@@ -54,6 +54,7 @@ public class CatRepository : ICatRepository
     {
         var data = await _context.Cats
             .Include(c => c.Seller)
+            .Where(c => c.Id == CatId)
             .Select(c => new HomeViewModel
             {// Cat info
                 CatId = c.Id,
