@@ -2,6 +2,7 @@
 using CatMS.Models;
 using CatMS.Repositorys;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CatMS.Controllers
 {
@@ -9,13 +10,18 @@ namespace CatMS.Controllers
     {
         private readonly IOrderRepository _orderRepository;
         private readonly ISignInHelper _signInHelper;
+        private readonly ICatRepository _catRepository;
+
+
 
         public OrderController(
             IOrderRepository orderRepository,
-            ISignInHelper signInHelper)
+            ISignInHelper signInHelper,
+            ICatRepository catRepository)
         {
             _orderRepository = orderRepository;
             _signInHelper = signInHelper;
+            _catRepository = catRepository;
         }
 
         public IActionResult PlaceOrder(int catId)
@@ -44,12 +50,21 @@ namespace CatMS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ConfirmOrder(Order order)
+        public async Task<IActionResult> ConfirmOrder(Order order)
         {
             order.OrderDate = DateTime.Now;
 
             _orderRepository.AddOrder(order);
             _orderRepository.Save();
+            if(order != null)
+            {
+               var data = await _catRepository.GetCatByIdAsync((int)order.CatId);
+                if(data != null)
+                {
+                     data.IsPubliced = true;
+                     await _catRepository.UpdateCatAsync(data);
+                }
+            }
 
             return RedirectToAction("Success");
         }

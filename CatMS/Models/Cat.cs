@@ -14,6 +14,7 @@ public class Cat
     public string ImageUrl { get; set; }    // Picture
     public DateTime PostedDate { get; set; }
     public long SellerId { get; set; }
+    public bool IsPubliced { get; set; }
     public IdentityModel.User Seller { get; set; }
     public ICollection<Order> Order { get; set; }
 }

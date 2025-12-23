@@ -82,6 +82,7 @@ public class CatRepository : ICatRepository
     {
         var data = await _context.Cats
        .Include(c => c.Seller)
+       .Where(x=> x.IsPubliced != true)
        .Select(c => new HomeViewModel
        {
            // Cat info
