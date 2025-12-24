@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55011b91f986f033d3b75b09c38adc3ad766091d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e056055bf7c2550d7bc671d4848c14d70223453")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

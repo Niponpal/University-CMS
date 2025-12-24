@@ -1,9 +1,10 @@
 ﻿using CatMS.Data;
 using CatMS.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CatMS.Repositorys;
 
-public class OrderRepository:IOrderRepository
+public class OrderRepository : IOrderRepository
 {
     private readonly ApplicationDbContext _context;
 
@@ -26,4 +27,22 @@ public class OrderRepository:IOrderRepository
     {
         _context.SaveChanges();
     }
+    public async Task<Order?> GetOrderDetailsAsync(long id)
+    {
+        return await _context.Orders
+            .Include(o => o.Buyer)
+            .Include(o => o.Cat)
+            .FirstOrDefaultAsync(o => o.Id == id);
+
+    }
+
+    public async Task<IEnumerable<Order>> GetAllOrdersAsync()
+    {
+        return await _context.Orders
+            .Include(o => o.Buyer)
+            .Include(o => o.Cat)
+            .OrderByDescending(o => o.OrderDate)
+            .ToListAsync();
+    }
+
 }
