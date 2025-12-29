@@ -50,9 +50,23 @@
                         </div>
 
                         <!-- Submit -->
-                        <button type="submit" class="btn btn-success w-100">
+                   @*      <button type="submit" class="btn btn-success w-100">
                             <i class="fas fa-check-circle me-2"></i>Confirm Order
-                        </button>
+                        </button> *@
+
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="submit" class="btn btn-success w-50">
+                                <i class="fas fa-check-circle me-2"></i>Confirm Order
+                            </button>
+
+                            <a asp-controller="Home"
+                               asp-action="index"
+                               asp-route-id="@Model.CatId"
+                               class="btn btn-outline-danger w-50">
+                                <i class="fas fa-times-circle me-2"></i>Cancel Order
+                            </a>
+                        </div>
+
                     </form>
                 </div>
             </div>

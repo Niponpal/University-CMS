@@ -12,10 +12,10 @@ public class Cat
     public string Color { get; set; }       // Color
     public string Description { get; set; } // Details
     public string ImageUrl { get; set; }    // Picture
-    public DateTime PostedDate { get; set; }
-    public long SellerId { get; set; }
-    public bool IsPubliced { get; set; }
-    public IdentityModel.User Seller { get; set; }
-    public ICollection<Order> Order { get; set; }
+    public DateTime PostedDate { get; set; }  // Date when posted
+    public long SellerId { get; set; }         // Foreign Key to User
+    public bool IsPubliced { get; set; }      // Is the cat listing public
+    public IdentityModel.User Seller { get; set; } // Navigation property to User
+    public ICollection<Order> Order { get; set; } // Navigation property to Orders
 }
 

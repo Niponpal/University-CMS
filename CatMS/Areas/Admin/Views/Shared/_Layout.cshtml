@@ -268,7 +268,89 @@
                                     <span class="badge badge-info right">6</span>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
+
+
+
+                            <nav class="mt-2">
+                                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+                                    <!-- Dashboard সব user দেখবে -->
+                                    <li class="nav-item">
+                                        <a asp-controller="Home" asp-action="Index" class="nav-link">
+                                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                                            <p>Dashboard</p>
+                                        </a>
+                                    </li>
+
+                                    <!-- শুধু Admin / Seller এর জন্য -->
+                                    @if (User.IsInRole("Administrator") || User.IsInRole("Seller"))
+                                    {
+                                        <li class="nav-item">
+                                            <a asp-controller="Cat" asp-action="Index" class="nav-link">
+                                                <i class="nav-icon fas fa-cat"></i>
+                                                <p>Add / Manage Cat</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a asp-controller="Orders" asp-action="Index" class="nav-link">
+                                                <i class="nav-icon fas fa-file-invoice"></i>
+                                                <p>Orders</p>
+                                            </a>
+                                        </li>
+                                    }
+
+                                    <!-- শুধু Buyer এর জন্য -->
+                                    @if (User.IsInRole("Buyer") && !User.IsInRole("Administrator") && !User.IsInRole("Seller"))
+                                    {
+                                        <li class="nav-item">
+                                            <a asp-controller="Cat" asp-action="Index" class="nav-link">
+                                                <i class="nav-icon fas fa-cat"></i>
+                                                <p>Add / Manage Cat</p>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+
+
+
+
+
+
+                            @* 
+                                    @if (User.IsInRole("Administrator") || User.IsInRole("Seller"))
+                                    {
+                                        <li class="nav-item">
+                                            <a asp-controller="Cat" asp-action="Index" class="nav-link">
+                                                <i class="nav-icon fas fa-cat"></i>
+                                                <p>Add / Manage Cat</p>
+                                            </a>
+                                        </li>
+
+                                  
+                            <li class="nav-item">
+                                <a asp-action="Index" asp-controller="Order" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Order</p>
+                                </a>
+                            </li>
+                            
+                                    }
+
+                                    @if (User.IsInRole("Buyer"))
+                                    {
+                                        <li class="nav-item">
+                                            <a asp-controller="Orders" asp-action="Index" class="nav-link">
+                                                <i class="nav-icon fas fa-shopping-cart"></i>
+                                                <p>My Orders</p>
+                                            </a>
+                                        </li>
+                                    }
+
+                                </ul> *@
+                            
+
+                           @*  <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a asp-action="Index" asp-controller="Cat" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -286,7 +368,7 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Buyer</p>
                                     </a>
-                                </li>
+                                </li> *@
 
                                
                               

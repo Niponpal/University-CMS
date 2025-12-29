@@ -85,7 +85,7 @@ public class AccountController : Controller
 
         var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
         if (result.Succeeded)
-            return LocalRedirect("/Admin/Dashboard/Index");
+            return RedirectToAction("Index", "Home");
         ModelState.AddModelError(string.Empty, "Invalid login attempt.");
         return View(model);
     }
