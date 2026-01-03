@@ -2,6 +2,7 @@ using CatMS;
 using CatMS.Data;
 using CatMS.Helper;
 using CatMS.Repositorys;
+using CatMS.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using static CatMS.Auth_IdentityModel.IdentityModel;
@@ -39,6 +40,8 @@ builder.Services.AddScoped<ICatRepository, CatRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 // Register the Cloudinary service
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
+
+builder.Services.AddScoped<IRolePermissionService, RolePermissionService>();
 
 
 
