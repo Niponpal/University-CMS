@@ -1,12 +1,7 @@
-﻿
-
-@model List<CatMS.Models.HomeViewModel>
-
+﻿@model List<CatMS.Models.HomeViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
-
-
 <!-- Hero Section -->
 <section class="hero-section bg-light py-5">
     <div class="container">
@@ -407,73 +402,3 @@
 
 
 
-
-@* @model List<CatMS.Models.HomeViewModel>
-
-@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="container col-xxl-8 px-4 py-5">
-    <div class="row align-items-center g-5 py-5">
-        <div class="col-12 col-lg-6">
-            <h1 class="display-5 fw-bold lh-1 mb-3">
-                Bloggie - The Cat Blog
-            </h1>
-            <p class="lead">
-                Bloggie is the cozy home to cat blogs, covering a wide range of topics about our furry friends. From cat care, nutrition, health tips, training, breeds, and behavior to fun stories and cute cat moments – you’ll find everything here. 🐱
-            </p>
-        </div>
-
-        <div class="col-12 col-lg-6">
-            <img src="https://placecats.com/300/200"
-                 alt="Bloggie - Dev blogs"
-                 class="d-block mx-lg-auto img-fluid"
-                 style="height:500px; width:450px" />
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        @if (Model != null && Model.Any())
-        {
-            foreach (var cat in Model)
-            {
-                <div class="col-md-6 mb-5">
-                    <div class="card shadow-sm h-100">
-                        <img src="@cat.ImageUrl" class="card-img-top" alt="@cat.Description" style="height:250px; object-fit:cover;" />
-                        <div class="card-body">
-                            <h5 class="card-title">@cat.Name</h5>
-                            <p class="card-text">
-                                <strong>Breed:</strong> @cat.Breed <br />
-                                <strong>Age:</strong> @cat.Age years <br />
-                                <strong>Gender:</strong> @cat.Gender <br />
-                                <strong>Price:</strong> $@cat.Price <br />
-                                <strong>Color:</strong> @cat.Color <br />
-                                <strong>Posted:</strong> @cat.PostedDate.ToShortDateString()
-                            </p>
-                            <hr />
-                            <p class="card-text">
-                                <strong>Seller Info:</strong> <br />
-                                Name: @cat.SellerName <br />
-                                Email: @cat.SellerEmail <br />
-                                Phone: @cat.SellerPhone <br />
-                                Address: @cat.SellerAddress
-                            </p>
-                            <a href="#" class="btn btn-dark mt-2">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
-        else
-        {
-            <div class="col-12">
-                <p class="text-center">No cats available at the moment.</p>
-            </div>
-        }
-    </div>
-</div>
-
- *@
