@@ -101,7 +101,7 @@ public class CatRepository : ICatRepository
           
            SellerName = c.Seller.FullName,
            SellerEmail = c.Seller.Email,
-           SellerPhone = c.Seller.Phone,
+           SellerPhone = c.Seller.PhoneNumber,
            SellerAddress = c.Seller.Address
        })
        .ToListAsync();

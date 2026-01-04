@@ -12,8 +12,6 @@ namespace CatMS.Controllers
         private readonly ISignInHelper _signInHelper;
         private readonly ICatRepository _catRepository;
 
-
-
         public OrderController(
             IOrderRepository orderRepository,
             ISignInHelper signInHelper,

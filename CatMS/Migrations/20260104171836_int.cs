@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CatMS.Migrations
 {
     /// <inheritdoc />
-    public partial class createdatabase : Migration
+    public partial class @int : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -189,7 +189,8 @@ namespace CatMS.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PostedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SellerId = table.Column<long>(type: "bigint", nullable: false)
+                    SellerId = table.Column<long>(type: "bigint", nullable: false),
+                    IsPubliced = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -199,7 +200,7 @@ namespace CatMS.Migrations
                         column: x => x.SellerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -223,14 +224,12 @@ namespace CatMS.Migrations
                         name: "FK_Orders_AspNetUsers_BuyerId",
                         column: x => x.BuyerId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Orders_Cats_CatId",
                         column: x => x.CatId,
                         principalTable: "Cats",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.InsertData(
@@ -239,8 +238,8 @@ namespace CatMS.Migrations
                 values: new object[,]
                 {
                     { 1L, null, 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Default role assigned to all employees.", "Administrator", "ADMINISTRATOR", 0, null, null },
-                    { 2L, null, 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Default role assigned to all employees.", "Seller", "EMPLOYEE", 0, null, null },
-                    { 3L, null, 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Default role assigned to all customers.", "Buyer", "CUSTOMER", 0, null, null }
+                    { 2L, null, 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Default role assigned to all employees.", "Seller", "Seller", 0, null, null },
+                    { 3L, null, 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Default role assigned to all customers.", "Buyer", "Buyer", 0, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -248,8 +247,8 @@ namespace CatMS.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "CreatedBy", "CreatedDate", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "Phone", "PhoneNumber", "PhoneNumberConfirmed", "RegisterDate", "SecurityStamp", "TwoFactorEnabled", "UpdatedBy", "UpdatedDate", "UserName" },
                 values: new object[,]
                 {
-                    { 1L, 0, "", "6e4bdb17-3c67-41df-933a-f2d5c2bd9ca2", 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "admin@localhost.com", true, "", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEMvY2KHaY0reHC0NFlAplEh5eZmyqR8inWqOOCFz3xWihYj7nGFILCCDsdRV987jzA==", "", null, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "f959b63f-7060-4b2c-add7-bb674f0cceef", false, null, null, "admin@localhost.com" },
-                    { 2L, 0, "", "cc201702-541f-4587-a67b-2d685137fba5", 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "employee@localhost.com", true, "", false, null, "EMPLOYEE@LOCALHOST.COM", "EMPLOYEE@LOCALHOST.COM", "AQAAAAIAAYagAAAAENNUNeIl2LtIdFD+oWOhSKGusQ7981MLzT9C6uZe73U2QumYLHYUG3qLaUM48r3l+Q==", "", null, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "9a76fc41-6fb3-4bf3-9e56-7d8db6ce8a1c", false, null, null, "employee@localhost.com" }
+                    { 1L, 0, "", "9b33b6f9-aecd-40ff-8f83-299fe291fbde", 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "admin@localhost.com", true, "", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEBv1MopVPvyndzpSfl6jDVhDaC0vweD5l3mZPDghYDSxOHjvdHweFtvaL0RZAKFjCA==", "", null, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "7b0eae95-0808-448c-aead-460a39a89cd3", false, null, null, "admin@localhost.com" },
+                    { 2L, 0, "", "38829836-3339-4c91-a5f0-7daad1f83547", 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "employee@localhost.com", true, "", false, null, "EMPLOYEE@LOCALHOST.COM", "EMPLOYEE@LOCALHOST.COM", "AQAAAAIAAYagAAAAEGnN5tmPqw3MMa/oQsqFsjI8t5LJPhT3H++hSFu19wTr+c5amsQofsuHrPSaE8rZxA==", "", null, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "75937521-b8f2-4628-bf9e-106e59c4cdc3", false, null, null, "employee@localhost.com" }
                 });
 
             migrationBuilder.InsertData(

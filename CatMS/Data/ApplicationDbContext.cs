@@ -31,27 +31,54 @@ public class ApplicationDbContext : IdentityDbContext<
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
-        modelBuilder.Entity<Order>()
-          .HasOne(c => c.Buyer)
-          .WithMany(s => s.Orders)
-          .HasForeignKey(c => c.BuyerId)
-          .OnDelete(DeleteBehavior.Cascade);
+        //modelBuilder.Entity<Order>()
+        //  .HasOne(c => c.Buyer)
+        //  .WithMany(s => s.Orders)
+        //  .HasForeignKey(c => c.BuyerId)
+        //  .OnDelete(DeleteBehavior.Cascade);
+
+        //modelBuilder.Entity<Order>()
+        //  .HasOne(c => c.Cat)
+        //  .WithMany(s => s.Order)
+        //  .HasForeignKey(c => c.CatId)
+        //  .OnDelete(DeleteBehavior.Cascade);
+
+        //modelBuilder.Entity<Cat>()
+        // .HasOne(c => c.Seller)
+        // .WithMany(s => s.Cats)
+        // .HasForeignKey(c => c.SellerId)
+        // .OnDelete(DeleteBehavior.Cascade);
+
+        //base.OnModelCreating(modelBuilder);
+
+
+
+
 
         modelBuilder.Entity<Order>()
-          .HasOne(c => c.Cat)
-          .WithMany(s => s.Order)
-          .HasForeignKey(c => c.CatId)
-          .OnDelete(DeleteBehavior.Cascade);
+       .HasOne(o => o.Cat)
+       .WithMany(c => c.Order)
+       .HasForeignKey(o => o.CatId)
+       .OnDelete(DeleteBehavior.NoAction);
+
+        modelBuilder.Entity<Order>()
+            .HasOne(o => o.Buyer)
+            .WithMany(u => u.Orders)
+            .HasForeignKey(o => o.BuyerId)
+            .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<Cat>()
-         .HasOne(c => c.Seller)
-         .WithMany(s => s.Cats)
-         .HasForeignKey(c => c.SellerId)
-         .OnDelete(DeleteBehavior.Cascade);
+            .HasOne(c => c.Seller)
+            .WithMany(u => u.Cats)
+            .HasForeignKey(c => c.SellerId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         base.OnModelCreating(modelBuilder);
         // Automatically apply configurations
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+
+
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

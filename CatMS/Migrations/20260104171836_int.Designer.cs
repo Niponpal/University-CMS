@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CatMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251222155841_ints")]
-    partial class ints
+    [Migration("20260104171836_int")]
+    partial class @int
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -230,7 +230,7 @@ namespace CatMS.Migrations
                             Id = 1L,
                             AccessFailedCount = 0,
                             Address = "",
-                            ConcurrencyStamp = "c3f18c02-f33d-431b-b9ca-93df8e818e41",
+                            ConcurrencyStamp = "9b33b6f9-aecd-40ff-8f83-299fe291fbde",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "admin@localhost.com",
@@ -239,11 +239,11 @@ namespace CatMS.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENGUA8OlL6nT38wL/V5rI/IkHnX546kBbb0HUakhYIjW6qJzRlVV6RGPCUoqdmLd+w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBv1MopVPvyndzpSfl6jDVhDaC0vweD5l3mZPDghYDSxOHjvdHweFtvaL0RZAKFjCA==",
                             Phone = "",
                             PhoneNumberConfirmed = false,
                             RegisterDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "76408953-f8f1-4079-b351-61c89e1f91dd",
+                            SecurityStamp = "7b0eae95-0808-448c-aead-460a39a89cd3",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -252,7 +252,7 @@ namespace CatMS.Migrations
                             Id = 2L,
                             AccessFailedCount = 0,
                             Address = "",
-                            ConcurrencyStamp = "179fbe79-2417-4421-afc4-df0b6405d521",
+                            ConcurrencyStamp = "38829836-3339-4c91-a5f0-7daad1f83547",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "employee@localhost.com",
@@ -261,11 +261,11 @@ namespace CatMS.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "EMPLOYEE@LOCALHOST.COM",
                             NormalizedUserName = "EMPLOYEE@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAECCiSuCzjdMrY366Q9ioJl2D9pm8rAhFSCoIPfK1IKhBmBbCARsba4XO+c1vtoMeBA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGnN5tmPqw3MMa/oQsqFsjI8t5LJPhT3H++hSFu19wTr+c5amsQofsuHrPSaE8rZxA==",
                             Phone = "",
                             PhoneNumberConfirmed = false,
                             RegisterDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "d51cd808-056d-436b-81fd-9e550db6aeaa",
+                            SecurityStamp = "75937521-b8f2-4628-bf9e-106e59c4cdc3",
                             TwoFactorEnabled = false,
                             UserName = "employee@localhost.com"
                         });
@@ -524,13 +524,13 @@ namespace CatMS.Migrations
                     b.HasOne("CatMS.Auth_IdentityModel.IdentityModel+User", "Buyer")
                         .WithMany("Orders")
                         .HasForeignKey("BuyerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("CatMS.Models.Cat", "Cat")
                         .WithMany("Order")
                         .HasForeignKey("CatId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Buyer");
