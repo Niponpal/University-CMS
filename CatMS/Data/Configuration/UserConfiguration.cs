@@ -27,6 +27,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             NormalizedEmail = "EMPLOYEE@LOCALHOST.COM",
             UserName = "employee@localhost.com",
             NormalizedUserName = "EMPLOYEE@LOCALHOST.COM",
+            //Email = "seller@localhost.com",
+            //NormalizedEmail = "SELLER@LOCALHOST.COM",
+            //UserName = "seller@localhost.com",
+            //NormalizedUserName = "SELLER@LOCALHOST.COM",
             PasswordHash = hasher.HashPassword(null, "P@ssword1"),
             EmailConfirmed = true,
             SecurityStamp = Guid.NewGuid().ToString()

@@ -31,4 +31,13 @@ public class OrderController : Controller
         return View(order);
     }
 
+    [HttpPost]
+ 
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _orderRepository.DeleteOrderAsync(id);
+        return RedirectToAction(nameof(Index));
+    }
+
+
 }

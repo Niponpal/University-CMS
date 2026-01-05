@@ -11,4 +11,6 @@ public interface IOrderRepository
     Task<Order?> GetOrderDetailsAsync(long id);
     Task<IEnumerable<Order>> GetAllOrdersAsync();
 
+    Task DeleteOrderAsync(long id);
+
 }
