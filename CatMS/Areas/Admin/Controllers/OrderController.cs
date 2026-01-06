@@ -1,4 +1,6 @@
-﻿using CatMS.Repositorys;
+﻿using CatMS.Helper;
+using CatMS.Models;
+using CatMS.Repositorys;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatMS.Areas.Admin.Controllers;
@@ -7,14 +9,40 @@ public class OrderController : Controller
 {
 
     private readonly IOrderRepository _orderRepository;
-    public OrderController(IOrderRepository orderRepository)
+    private readonly ISignInHelper _signInHelper;
+    public OrderController(IOrderRepository orderRepository, ISignInHelper signInHelper)
     {
         _orderRepository = orderRepository;
+        _signInHelper = signInHelper;
     }
 
     public async Task<IActionResult> Index()
     {
-        var orders = await _orderRepository.GetAllOrdersAsync();
+        var userId = _signInHelper.UserId;
+
+        if (userId == null)
+            return Unauthorized();
+
+        IEnumerable<Order> orders;
+
+        if (_signInHelper.Roles.Contains("Seller"))
+        {
+            orders = await _orderRepository.GetAllOrdersAsync(
+                userId.Value,
+                OrderUserType.Seller);
+        }
+        else if (_signInHelper.Roles.Contains("Buyer"))
+        {
+            orders = await _orderRepository.GetAllOrdersAsync(
+                userId.Value,
+                OrderUserType.Buyer);
+        }
+        else
+        {
+            // Admin / SuperAdmin
+            orders = await _orderRepository.GetAllOrdersAsync();
+        }
+
         return View(orders);
     }
 

@@ -16,7 +16,9 @@
         <tr>
             <th>ID</th>
             <th>Date</th>
-            <th>Buyer</th>
+            <th>Buyer Name</th>
+            <th>Buyer Phone Number</th>
+            <th>Buyer Address</th>
             <th>Cat</th>
             <th>Total</th>
             <th>Action</th>
@@ -28,7 +30,9 @@
             <tr>
                 <td>@item.Id</td>
                 <td>@item.OrderDate.ToString("dd MMM yyyy")</td>
-                <td>@item.Buyer?.UserName</td>
+                <td>@item.Buyer?.FullName</td>
+                <td>@item.Buyer?.PhoneNumber</td>
+                <td>@item.Buyer?.Address</td>
                 <td>@item.Cat?.Name</td>
                 <td>৳ @item.TotalAmount</td>
                 <td>

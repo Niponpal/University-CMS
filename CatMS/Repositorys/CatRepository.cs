@@ -37,6 +37,11 @@ public class CatRepository : ICatRepository
       
     }
 
+    public async Task<IEnumerable<Cat>> GetAllCatsAsync(long? Id)
+    {
+        return await _context.Cats.Where(x=>x.SellerId==Id).ToListAsync();
+    }
+
     public async Task<Cat> GetByUrlHandleAsync(string urlHandle)
     {
         var data = await _context.Cats.FirstOrDefaultAsync(x => x.ImageUrl == urlHandle);

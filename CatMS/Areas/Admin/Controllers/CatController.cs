@@ -22,6 +22,14 @@ public class CatController : Controller
 
     public async Task<IActionResult> Index()
     {
+        var userId = _signInHelper.UserId;
+
+        if (userId != null && _signInHelper.Roles.Contains("Seller"))
+        {
+            var sellerCats = await _catRepository.GetAllCatsAsync(userId.Value);
+            return View(sellerCats);
+        }
+
         var cats = await _catRepository.GetAllCatsAsync();
         return View(cats);
     }
