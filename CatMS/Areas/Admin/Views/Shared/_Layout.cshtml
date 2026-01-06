@@ -309,9 +309,9 @@
                                     @if (User.IsInRole("Buyer") && !User.IsInRole("Administrator") && !User.IsInRole("Seller"))
                                     {
                                         <li class="nav-item">
-                                            <a asp-controller="Cat" asp-action="Index" class="nav-link">
-                                                <i class="nav-icon fas fa-cat"></i>
-                                                <p>Add / Manage Cat</p>
+                                            <a asp-action="Index" asp-controller="Order" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Order</p>
                                             </a>
                                         </li>
                                     }
