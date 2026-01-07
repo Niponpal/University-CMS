@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CatMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260106061537_ints")]
-    partial class ints
+    [Migration("20260107064920_int")]
+    partial class @int
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -230,7 +230,7 @@ namespace CatMS.Migrations
                             Id = 1L,
                             AccessFailedCount = 0,
                             Address = "",
-                            ConcurrencyStamp = "3eeaf948-9acb-4f07-ae43-eb85c3a08479",
+                            ConcurrencyStamp = "bad95ebf-5dda-4e52-8ce7-090bbb213b52",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "admin@localhost.com",
@@ -239,11 +239,11 @@ namespace CatMS.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHEBtpXV8jjxTqckx60Uqkto46WdgxZ9DS9KcHG3fbME8FRPpsrB3upmgRTM6dWEkw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAboNEctghEY0lcJk8QhbnNglIjQ8VJMQ8s3zQqTx9pKNRLAIklrJ50G18Me9mqBUg==",
                             Phone = "",
                             PhoneNumberConfirmed = false,
                             RegisterDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "19068a60-203f-4b57-907f-299993dbdadd",
+                            SecurityStamp = "b781cd87-2f84-4471-9215-724d20b76a67",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -252,22 +252,22 @@ namespace CatMS.Migrations
                             Id = 2L,
                             AccessFailedCount = 0,
                             Address = "",
-                            ConcurrencyStamp = "b8bca102-0951-4fe6-93f0-332d1d91c7d0",
+                            ConcurrencyStamp = "44273c62-891e-4cb6-a799-54d9309f57ad",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "employee@localhost.com",
+                            Email = "seller@localhost.com",
                             EmailConfirmed = true,
                             FullName = "",
                             LockoutEnabled = false,
-                            NormalizedEmail = "EMPLOYEE@LOCALHOST.COM",
-                            NormalizedUserName = "EMPLOYEE@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELwegKi3YWbOv0mxlKzdagbn5xuqrq8Be/kcZZCqLVxXySj7Smnv4fCQ6V8QHUmoKA==",
+                            NormalizedEmail = "SELLER@LOCALHOST.COM",
+                            NormalizedUserName = "SELLER@LOCALHOST.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJxhdPBFfYUxTOeebs+a07XJef8UPb9VvuQfEgfdjWF42vyfMCNxJz8cOSbW1MgGzA==",
                             Phone = "",
                             PhoneNumberConfirmed = false,
                             RegisterDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SecurityStamp = "429a07e2-d628-479b-85eb-847f6551105a",
+                            SecurityStamp = "29145f07-c30a-4ba6-8511-614f36db1734",
                             TwoFactorEnabled = false,
-                            UserName = "employee@localhost.com"
+                            UserName = "seller@localhost.com"
                         });
                 });
 
