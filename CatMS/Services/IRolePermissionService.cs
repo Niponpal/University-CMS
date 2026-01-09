@@ -20,10 +20,12 @@ public class RolePermissionService : IRolePermissionService
         };
 
 
+
     private bool HasPermission(List<string> roles, Func<(bool Create, bool Edit, bool Delete, bool View), bool> selector)
     {
         if (roles == null || roles.Count == 0)
             return false;
+
 
         foreach (var role in roles)
         {

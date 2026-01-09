@@ -36,20 +36,15 @@ builder.Services.AddIdentity<User, Role>(options =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 // Register the Cat repository
 builder.Services.AddScoped<ICatRepository, CatRepository>();
-
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 // Register the Cloudinary service
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
-
+// Register RolePermissionService
 builder.Services.AddScoped<IRolePermissionService, RolePermissionService>();
-
-
-
-
+// Register SignInHelper
 builder.Services.AddTransient<ISignInHelper, SignInHelper>();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -60,8 +55,6 @@ if (!app.Environment.IsDevelopment())
 
 
 
-
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -69,8 +62,6 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-
 app.MapControllerRoute(
      name: "areas",
             pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
