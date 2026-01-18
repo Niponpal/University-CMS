@@ -19,7 +19,7 @@ public class CatRepository : ICatRepository
         return cat;
     }
 
-    public async Task<Cat> DeleteCatAsync(int id)
+    public async Task<Cat> DeleteCatAsync(long id)
     {
         var data = await _context.Cats.FindAsync(id);
         if (data != null)

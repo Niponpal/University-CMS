@@ -70,7 +70,7 @@ public class CatController : Controller
         return View(data);
     }
     [HttpPost]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(long id)
     {
         var data = await _catRepository.DeleteCatAsync(id);
 
